@@ -1,0 +1,15 @@
+<?xml version="1.0">
+<story name="Harry Potter and the Prisoner of Azkaban">
+  <card>
+    Harry Potter was a highly <adjective>unusual</adjective> boy in many ways.
+  </card>
+  <card>
+    For one thing, he <verb>hated</verb> the <noun>summer</noun> holidays more than any other time of year.
+  </card>
+  <card>
+    For another, he really wanted to do his <noun>homework</noun> but was forced to do it in <noun>secret</noun>, in the dead of night.
+ </card>
+ <card>
+   And he also happened to be a <noun>wizard</noun>.
+ </card>
+</story>
