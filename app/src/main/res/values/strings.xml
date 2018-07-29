@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">VideoMadLib</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_text">TextActivity</string>
+    <string name="show_text">Enter News</string>
+    <string name="hint_enter_something">Enter the bad news</string>
 </resources>

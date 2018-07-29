@@ -12,35 +12,18 @@ open class MediaLibrary(
         // More creative commons, creative commons videos - https://www.blender.org/about/projects/
         list.add(
                 with(MediaDescriptionCompat.Builder()) {
-                     setDescription("MP4 loaded over HTTP")
-                    setMediaId("1")
-                    // License - https://peach.blender.org/download/
-                    setMediaUri(Uri.parse("asset:///1b.mp4"))
-                    //setMediaUri(Uri.parse("http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"))
-                    setTitle("Short film Big Buck Bunny")
-                    setSubtitle("Streaming video")
+                    setMediaUri(Uri.parse("asset:///a1.mp4"))
                     build()
                 })
         list.add(
                 with(MediaDescriptionCompat.Builder()) {
                     setDescription("MP4 loaded over HTTP")
-                    setMediaId("2")
-                    // License - https://peach.blender.org/download/
-                    setMediaUri(Uri.parse("asset:///2a.mp4"))
-                    //setMediaUri(Uri.parse("http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"))
-                    setTitle("Short film Big Buck Bunny")
-                    setSubtitle("Streaming video")
+                    setMediaUri(Uri.parse("asset:///b1.mp4"))
                     build()
                 })
         list.add(
                 with(MediaDescriptionCompat.Builder()) {
-                    setDescription("MP4 loaded over HTTP")
-                    setMediaId("3")
-                    // License - https://peach.blender.org/download/
-                    setMediaUri(Uri.parse("asset:///3d.mp4"))
-                    //setMediaUri(Uri.parse("http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"))
-                    setTitle("Short film Big Buck Bunny")
-                    setSubtitle("Streaming video")
+                    setMediaUri(Uri.parse("asset:///c1.mp4"))
                     build()
                 })
     }

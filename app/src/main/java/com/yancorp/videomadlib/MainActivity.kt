@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
         /*
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -104,6 +103,7 @@ class MainActivity : AppCompatActivity() {
 
         if (resultCode == Activity.RESULT_OK) {
             if(requestCode == READ_REQ || requestCode == VIDEO_CAPTURE){
+                MediaLibrary.list.removeAt(0)
                 MediaLibrary.list.add(0, with(MediaDescriptionCompat.Builder()) {
                     // License - https://peach.blender.org/download/
                     setMediaUri(resultData?.data!!)
@@ -113,6 +113,26 @@ class MainActivity : AppCompatActivity() {
                 exoplayer?.prepare(buildMediaSource())
             }
         }
+    }
+
+    fun randomize(view: View) {
+        MediaLibrary.list.clear()
+        MediaLibrary.list.add(
+                with(MediaDescriptionCompat.Builder()) {
+                    setMediaUri(Uri.parse("asset:///a" + (1..2).shuffled().first() + ".mp4"))
+                    build()
+                })
+        MediaLibrary.list.add(
+                with(MediaDescriptionCompat.Builder()) {
+                    setMediaUri(Uri.parse("asset:///b" + (1..2).shuffled().first() + ".mp4"))
+                    build()
+                })
+        MediaLibrary.list.add(
+                with(MediaDescriptionCompat.Builder()) {
+                    setMediaUri(Uri.parse("asset:///c" + (1..2).shuffled().first() + ".mp4"))
+                    build()
+                })
+        exoplayer?.prepare(buildMediaSource())
     }
 
     override fun onDestroy() {
@@ -159,5 +179,23 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) {
+            hideSystemUI()
+        }
+    }
+
+    private fun hideSystemUI() {
+        val decorView = window.decorView
+        decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE
+                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                // Hide the nav bar and status bar
+                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_FULLSCREEN)
     }
 }
